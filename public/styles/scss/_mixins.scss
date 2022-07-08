@@ -7,6 +7,27 @@
   align-items: center;
 }
 
-@mixin desktop {
-  
+@mixin querie($range) {
+  $tablet-portrait: 600px;
+  $tablet-landscape: 900px;
+  $desktop: 1200px;
+  $big-desktop: 1800px;
+
+  @if $range == tp {
+    @media (min-width: #{$tablet-portrait}) {
+      @content;
+    }
+  } @else if $range == tl {
+    @media (min-width: #{$tablet-landscape}) {
+      @content;
+    }
+  } @else if $range == d {
+    @media (min-width: #{$desktop}) {
+      @content;
+    }
+  } @else if $range == bd {
+    @media (min-width: #{$big-desktop}) {
+      @content;
+    }
+  }
 }
