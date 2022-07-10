@@ -12,6 +12,14 @@
   height: 100%;
 }
 
+@mixin bg-image($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
 @mixin querie($range) {
   @if $range == tp {
     @media (min-width: #{variables.$breakpoint-tp}) {
