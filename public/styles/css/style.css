@@ -5,26 +5,155 @@
   font: normal 400 1rem "Poppins", sans-serif;
 }
 
-.container {
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+body {
   width: 100vw;
   height: 100vh;
-  padding: 0px 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   background-color: #222;
   color: #f5f5f5;
 }
-.container--title {
+body--title {
   font-size: 2rem;
   font-weight: bold;
   text-shadow: 2px 1px 1px rgba(245, 245, 245, 0.6);
 }
-.container--subtitle {
+body--subtitle {
   font-style: italic;
   font-weight: 300;
   font-size: 0.9rem;
+}
+
+.dark {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+.header {
+  width: 100%;
+  height: 160px;
+  padding: 0px 15px;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: #f5f5f5;
+  color: #222;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 600px) {
+  .header {
+    height: 100px;
+  }
+}
+.header--area {
+  width: 100%;
+  height: 100%;
+  max-width: 1800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+@media (min-width: 600px) {
+  .header--area {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.header--logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header--title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 1px 1px rgba(34, 34, 34, 0.6);
+}
+.header--subtitle {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+.header--inputarea {
+  width: 100%;
+  height: 35px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 600px) {
+  .header--inputarea {
+    width: 300px;
+  }
+}
+.header--input {
+  width: 100%;
+  height: 100%;
+  padding: 0px 35px 0px 5px;
+  border: none;
+  background-color: #222;
+  color: #f5f5f5;
+  border-radius: 5px;
+}
+.header--input:focus, .header--input:focus-visible, .header--input:focus-within {
+  outline: none;
+}
+.header--search {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+}
+.header--search svg path {
+  fill: #f5f5f5;
+}
+
+.header__dark {
+  background-color: #222;
+  color: #f5f5f5;
+}
+.header__dark .header--title {
+  text-shadow: 2px 1px 1px rgba(245, 245, 245, 0.6);
+}
+.header__dark .header--input {
+  background-color: #f5f5f5;
+  color: #222;
+}
+.header__dark .header--search svg path {
+  fill: #222;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,26 +7,26 @@
   align-items: center;
 }
 
-@mixin querie($range) {
-  $tablet-portrait: 600px;
-  $tablet-landscape: 900px;
-  $desktop: 1200px;
-  $big-desktop: 1800px;
+@mixin all-size {
+  width: 100%;
+  height: 100%;
+}
 
+@mixin querie($range) {
   @if $range == tp {
-    @media (min-width: #{$tablet-portrait}) {
+    @media (min-width: #{variables.$breakpoint-tp}) {
       @content;
     }
   } @else if $range == tl {
-    @media (min-width: #{$tablet-landscape}) {
+    @media (min-width: #{variables.$breakpoint-tl}) {
       @content;
     }
   } @else if $range == d {
-    @media (min-width: #{$desktop}) {
+    @media (min-width: #{variables.$breakpoint-d}) {
       @content;
     }
   } @else if $range == bd {
-    @media (min-width: #{$big-desktop}) {
+    @media (min-width: #{variables.$breakpoint-bd}) {
       @content;
     }
   }
