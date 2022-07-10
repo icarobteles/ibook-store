@@ -1,0 +1,3 @@
+{
+  "conventionalCommits.scopes": ["scss", "settings.json", "css", "html"]
+}

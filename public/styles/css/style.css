@@ -5,26 +5,330 @@
   font: normal 400 1rem "Poppins", sans-serif;
 }
 
-.container {
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+body {
   width: 100vw;
   height: 100vh;
-  padding: 0px 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   background-color: #222;
   color: #f5f5f5;
 }
-.container--title {
+body--title {
   font-size: 2rem;
   font-weight: bold;
   text-shadow: 2px 1px 1px rgba(245, 245, 245, 0.6);
 }
-.container--subtitle {
+body--subtitle {
   font-style: italic;
   font-weight: 300;
   font-size: 0.9rem;
+}
+
+.dark {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+.header {
+  width: 100%;
+  height: 160px;
+  padding: 0px 15px;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: #f5f5f5;
+  color: #222;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 600px) {
+  .header {
+    height: 100px;
+  }
+}
+.header--area {
+  width: 100%;
+  height: 100%;
+  max-width: 1800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+@media (min-width: 600px) {
+  .header--area {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.header--logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header--title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 1px 1px rgba(34, 34, 34, 0.6);
+}
+.header--subtitle {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+.header--inputarea {
+  width: 100%;
+  height: 35px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 600px) {
+  .header--inputarea {
+    width: 300px;
+  }
+}
+.header--input {
+  width: 100%;
+  height: 100%;
+  padding: 0px 35px 0px 5px;
+  border: none;
+  background-color: #222;
+  color: #f5f5f5;
+  border-radius: 5px;
+}
+.header--input:focus, .header--input:focus-visible, .header--input:focus-within {
+  outline: none;
+}
+.header--search {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+}
+.header--search svg path {
+  fill: #f5f5f5;
+}
+
+.header__dark {
+  background-color: #222;
+  color: #f5f5f5;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+}
+.header__dark .header--title {
+  text-shadow: 2px 1px 1px rgba(245, 245, 245, 0.6);
+}
+.header__dark .header--input {
+  background-color: #f5f5f5;
+  color: #222;
+}
+.header__dark .header--search svg path {
+  fill: #222;
+}
+
+.banner {
+  width: 100%;
+  height: calc(100vh - 200px);
+  min-height: 480px;
+  background-image: url("https://th.bing.com/th/id/R.23d83f319fb9d49a0aa0f9d7bb59b8fa?rik=MFu7bHxBvUzB9w&riu=http%3a%2f%2fyesofcorsa.com%2fwp-content%2fuploads%2f2018%2f08%2f4K-Harry-Potter-Desktop-Wallpaper-For-PC.jpg&ehk=PU8YJkC89vNZHv4aO02Q1iVYU6%2fCXCC%2b8%2bKtXUDCm3c%3d&risl=&pid=ImgRaw&r=0");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 160px;
+}
+@media (min-width: 600px) {
+  .banner {
+    margin-top: 100px;
+    height: calc(100vh - 180px);
+  }
+}
+.banner--shadow {
+  width: inherit;
+  height: inherit;
+  min-height: 480px;
+}
+.banner--shadow__vertical {
+  background: linear-gradient(to top, #111 10%, transparent 90%);
+}
+.banner--shadow__horizontal {
+  background: linear-gradient(to right, #111 10%, transparent 90%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.banner--continue {
+  width: 100%;
+  height: 100%;
+  max-width: 1800px;
+  padding: 0px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.banner--infos {
+  width: 90%;
+  max-width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+}
+.banner--title {
+  font-size: 2rem;
+  font-weight: 900;
+  text-shadow: 1px 1px 1px #f5f5f5;
+}
+.banner--author {
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245, 245, 245, 0.6);
+}
+.banner--synopsis {
+  margin-top: 20px;
+  text-align: justify;
+}
+.banner--buyarea {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.banner--buy {
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  background-color: #f5f5f5;
+  color: #222;
+}
+@media (min-width: 600px) {
+  .banner--buy {
+    font-size: 1rem;
+  }
+}
+.banner--buy:hover {
+  font-weight: 500;
+  background-color: rgba(245, 245, 245, 0.6);
+}
+.banner--buy i {
+  margin-right: 5px;
+}
+.banner--buy__addCart {
+  background-color: #4c8c6b;
+  color: #f5f5f5;
+}
+.banner--buy__addCart:hover {
+  background-color: rgba(76, 140, 107, 0.6);
+}
+.banner--book {
+  display: none;
+}
+@media (min-width: 900px) {
+  .banner--book {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-end;
+    gap: 10px;
+  }
+}
+.banner--bookselect {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.banner--imagearea {
+  height: 100%;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+}
+.banner--imagearea:hover {
+  cursor: pointer;
+  border-color: #f5f5f5;
+}
+.banner--imagearea img {
+  width: 100%;
+  height: 100%;
+  height: 170px;
+  object-fit: contain;
+}
+.banner--imagearea__selected {
+  border-color: #f5f5f5;
+}
+.banner--selectarea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.banner--select {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 1px solid #f5f5f5;
+}
+.banner--select:hover {
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+.banner--select__selected {
+  background-color: #f5f5f5;
 }
 
 /*# sourceMappingURL=style.css.map */

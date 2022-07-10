@@ -9,12 +9,33 @@
   font: normal 400 1rem "Poppins", sans-serif;
 }
 
-.container {
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+body {
   width: 100vw;
   height: 100vh;
-  padding: 0px 15px;
 
   @include mixins.flex-center(column);
+  justify-content: flex-start;
 
   background-color: variables.$bgColor;
   color: variables.$textColor;
@@ -29,5 +50,287 @@
     font-style: italic;
     font-weight: 300;
     font-size: 0.9rem;
+  }
+}
+
+.dark {
+  background-color: variables.$textColor;
+  color: variables.$bgColor;
+}
+
+.header {
+  width: 100%;
+  height: 160px;
+
+  @include mixins.querie(tp) {
+    height: 100px;
+  }
+
+  padding: 0px 15px;
+
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+
+  background-color: variables.$header-bgColor;
+  color: variables.$header-textColor;
+  @include mixins.flex-center(row);
+
+  &--area {
+    @include mixins.all-size;
+    max-width: variables.$breakpoint-bd;
+
+    @include mixins.flex-center(column);
+    gap: 30px;
+
+    @include mixins.querie(tp) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &--logo {
+    @include mixins.flex-center(column);
+  }
+
+  &--title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 1px 1px rgba(variables.$header-textColor, 0.6);
+  }
+
+  &--subtitle {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
+  &--inputarea {
+    width: 100%;
+    height: 35px;
+    max-width: 480px;
+
+    @include mixins.flex-center(row);
+
+    position: relative;
+
+    @include mixins.querie(tp) {
+      width: 300px;
+    }
+  }
+
+  &--input {
+    @include mixins.all-size;
+    padding: 0px 35px 0px 5px;
+    border: none;
+
+    background-color: variables.$header-textColor;
+    color: variables.$header-bgColor;
+    border-radius: 5px;
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      outline: none;
+    }
+  }
+
+  &--search {
+    width: 15px;
+    height: 15px;
+    @include mixins.flex-center(row);
+
+    position: absolute;
+    right: 10px;
+
+    svg path {
+      fill: variables.$header-bgColor;
+    }
+  }
+}
+
+.header__dark {
+  background-color: variables.$header-textColor;
+  color: variables.$header-bgColor;
+  box-shadow: 0px 15px 30px rgba(#000, 0.3);
+
+  .header--title {
+    text-shadow: 2px 1px 1px rgba(variables.$header-bgColor, 0.6);
+  }
+  .header--input {
+    background-color: variables.$header-bgColor;
+    color: variables.$header-textColor;
+  }
+  .header--search svg path {
+    fill: variables.$header-textColor;
+  }
+}
+
+.banner {
+  width: 100%;
+  height: calc(100vh - 200px);
+  min-height: 480px;
+  @include mixins.bg-image(
+    "https://th.bing.com/th/id/R.23d83f319fb9d49a0aa0f9d7bb59b8fa?rik=MFu7bHxBvUzB9w&riu=http%3a%2f%2fyesofcorsa.com%2fwp-content%2fuploads%2f2018%2f08%2f4K-Harry-Potter-Desktop-Wallpaper-For-PC.jpg&ehk=PU8YJkC89vNZHv4aO02Q1iVYU6%2fCXCC%2b8%2bKtXUDCm3c%3d&risl=&pid=ImgRaw&r=0"
+  );
+
+  margin-top: 160px;
+  @include mixins.querie(tp) {
+    margin-top: 100px;
+    height: calc(100vh - 180px);
+  }
+
+  &--shadow {
+    width: inherit;
+    height: inherit;
+    min-height: 480px;
+
+    &__vertical {
+      background: linear-gradient(to top, #111 10%, transparent 90%);
+    }
+
+    &__horizontal {
+      background: linear-gradient(to right, #111 10%, transparent 90%);
+
+      @include mixins.flex-center(row);
+    }
+  }
+
+  &--continue {
+    @include mixins.all-size();
+    max-width: 1800px;
+    padding: 0px 15px;
+
+    @include mixins.flex-center(row);
+    justify-content: space-between;
+  }
+
+  &--infos {
+    width: 90%;
+    max-width: 400px;
+    height: 100%;
+
+    @include mixins.flex-center(column);
+    align-items: flex-start;
+  }
+
+  &--title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px variables.$textColor;
+  }
+
+  &--author {
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(variables.$textColor, 0.6);
+  }
+
+  &--synopsis {
+    margin-top: 20px;
+    text-align: justify;
+  }
+
+  &--buyarea {
+    margin-top: 20px;
+    width: 100%;
+    @include mixins.flex-center(row);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  &--buy {
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+
+    @include mixins.querie(tp) {
+      font-size: 1rem;
+    }
+
+    background-color: variables.$textColor;
+    color: variables.$bgColor;
+
+    &:hover {
+      font-weight: 500;
+      background-color: rgba(variables.$textColor, 0.6);
+    }
+
+    i {
+      margin-right: 5px;
+    }
+
+    &__addCart {
+      background-color: variables.$greenColor;
+      color: variables.$textColor;
+
+      &:hover {
+        background-color: rgba(variables.$greenColor, 0.6);
+      }
+    }
+  }
+
+  &--book {
+    display: none;
+
+    @include mixins.querie(tl) {
+      height: 70%;
+      @include mixins.flex-center(column);
+      align-items: flex-end;
+      gap: 10px;
+    }
+  }
+
+  &--bookselect {
+    width: 30%;
+    @include mixins.flex-center(row);
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  &--imagearea {
+    height: 100%;
+    border: 1px solid transparent;
+
+    @include mixins.flex-center(row);
+    justify-content: flex-end;
+
+    &:hover {
+      cursor: pointer;
+      border-color: variables.$textColor;
+    }
+
+    img {
+      @include mixins.all-size;
+      height: 170px;
+      object-fit: contain;
+    }
+
+    &__selected {
+      border-color: variables.$textColor;
+    }
+  }
+
+  &--selectarea {
+    @include mixins.flex-center(column);
+    gap: 20px;
+  }
+
+  &--select {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    border: 1px solid variables.$textColor;
+
+    &:hover {
+      cursor: pointer;
+      background-color: variables.$textColor;
+    }
+
+    &__selected {
+      background-color: variables.$textColor;
+    }
   }
 }
