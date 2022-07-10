@@ -25,6 +25,11 @@ button {
   border: none;
 }
 
+img {
+  width: 100px;
+  height: 100px;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -148,6 +153,7 @@ body {
 .header__dark {
   background-color: variables.$header-textColor;
   color: variables.$header-bgColor;
+  box-shadow: 0px 15px 30px rgba(#000, 0.3);
 
   .header--title {
     text-shadow: 2px 1px 1px rgba(variables.$header-bgColor, 0.6);
@@ -158,5 +164,173 @@ body {
   }
   .header--search svg path {
     fill: variables.$header-textColor;
+  }
+}
+
+.banner {
+  width: 100%;
+  height: calc(100vh - 200px);
+  min-height: 480px;
+  @include mixins.bg-image(
+    "https://th.bing.com/th/id/R.23d83f319fb9d49a0aa0f9d7bb59b8fa?rik=MFu7bHxBvUzB9w&riu=http%3a%2f%2fyesofcorsa.com%2fwp-content%2fuploads%2f2018%2f08%2f4K-Harry-Potter-Desktop-Wallpaper-For-PC.jpg&ehk=PU8YJkC89vNZHv4aO02Q1iVYU6%2fCXCC%2b8%2bKtXUDCm3c%3d&risl=&pid=ImgRaw&r=0"
+  );
+
+  margin-top: 160px;
+  @include mixins.querie(tp) {
+    margin-top: 100px;
+    height: calc(100vh - 180px);
+  }
+
+  &--shadow {
+    width: inherit;
+    height: inherit;
+    min-height: 480px;
+
+    &__vertical {
+      background: linear-gradient(to top, #111 10%, transparent 90%);
+    }
+
+    &__horizontal {
+      background: linear-gradient(to right, #111 10%, transparent 90%);
+
+      @include mixins.flex-center(row);
+    }
+  }
+
+  &--continue {
+    @include mixins.all-size();
+    max-width: 1800px;
+    padding: 0px 15px;
+
+    @include mixins.flex-center(row);
+    justify-content: space-between;
+  }
+
+  &--infos {
+    width: 90%;
+    max-width: 400px;
+    height: 100%;
+
+    @include mixins.flex-center(column);
+    align-items: flex-start;
+  }
+
+  &--title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px variables.$textColor;
+  }
+
+  &--author {
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(variables.$textColor, 0.6);
+  }
+
+  &--synopsis {
+    margin-top: 20px;
+    text-align: justify;
+  }
+
+  &--buyarea {
+    margin-top: 20px;
+    width: 100%;
+    @include mixins.flex-center(row);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  &--buy {
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+
+    @include mixins.querie(tp) {
+      font-size: 1rem;
+    }
+
+    background-color: variables.$textColor;
+    color: variables.$bgColor;
+
+    &:hover {
+      font-weight: 500;
+      background-color: rgba(variables.$textColor, 0.6);
+    }
+
+    i {
+      margin-right: 5px;
+    }
+
+    &__addCart {
+      background-color: variables.$greenColor;
+      color: variables.$textColor;
+
+      &:hover {
+        background-color: rgba(variables.$greenColor, 0.6);
+      }
+    }
+  }
+
+  &--book {
+    display: none;
+
+    @include mixins.querie(tl) {
+      height: 70%;
+      @include mixins.flex-center(column);
+      align-items: flex-end;
+      gap: 10px;
+    }
+  }
+
+  &--bookselect {
+    width: 30%;
+    @include mixins.flex-center(row);
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  &--imagearea {
+    height: 100%;
+    border: 1px solid transparent;
+
+    @include mixins.flex-center(row);
+    justify-content: flex-end;
+
+    &:hover {
+      cursor: pointer;
+      border-color: variables.$textColor;
+    }
+
+    img {
+      @include mixins.all-size;
+      height: 170px;
+      object-fit: contain;
+    }
+
+    &__selected {
+      border-color: variables.$textColor;
+    }
+  }
+
+  &--selectarea {
+    @include mixins.flex-center(column);
+    gap: 20px;
+  }
+
+  &--select {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    border: 1px solid variables.$textColor;
+
+    &:hover {
+      cursor: pointer;
+      background-color: variables.$textColor;
+    }
+
+    &__selected {
+      background-color: variables.$textColor;
+    }
   }
 }
