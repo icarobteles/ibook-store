@@ -9,12 +9,28 @@
   font: normal 400 1rem "Poppins", sans-serif;
 }
 
-.container {
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+body {
   width: 100vw;
   height: 100vh;
-  padding: 0px 15px;
 
   @include mixins.flex-center(column);
+  justify-content: flex-start;
 
   background-color: variables.$bgColor;
   color: variables.$textColor;
@@ -29,5 +45,118 @@
     font-style: italic;
     font-weight: 300;
     font-size: 0.9rem;
+  }
+}
+
+.dark {
+  background-color: variables.$textColor;
+  color: variables.$bgColor;
+}
+
+.header {
+  width: 100%;
+  height: 160px;
+
+  @include mixins.querie(tp) {
+    height: 100px;
+  }
+
+  padding: 0px 15px;
+
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+
+  background-color: variables.$header-bgColor;
+  color: variables.$header-textColor;
+  @include mixins.flex-center(row);
+
+  &--area {
+    @include mixins.all-size;
+    max-width: variables.$breakpoint-bd;
+
+    @include mixins.flex-center(column);
+    gap: 30px;
+
+    @include mixins.querie(tp) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &--logo {
+    @include mixins.flex-center(column);
+  }
+
+  &--title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 1px 1px rgba(variables.$header-textColor, 0.6);
+  }
+
+  &--subtitle {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
+  &--inputarea {
+    width: 100%;
+    height: 35px;
+    max-width: 480px;
+
+    @include mixins.flex-center(row);
+
+    position: relative;
+
+    @include mixins.querie(tp) {
+      width: 300px;
+    }
+  }
+
+  &--input {
+    @include mixins.all-size;
+    padding: 0px 35px 0px 5px;
+    border: none;
+
+    background-color: variables.$header-textColor;
+    color: variables.$header-bgColor;
+    border-radius: 5px;
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      outline: none;
+    }
+  }
+
+  &--search {
+    width: 15px;
+    height: 15px;
+    @include mixins.flex-center(row);
+
+    position: absolute;
+    right: 10px;
+
+    svg path {
+      fill: variables.$header-bgColor;
+    }
+  }
+}
+
+.header__dark {
+  background-color: variables.$header-textColor;
+  color: variables.$header-bgColor;
+
+  .header--title {
+    text-shadow: 2px 1px 1px rgba(variables.$header-bgColor, 0.6);
+  }
+  .header--input {
+    background-color: variables.$header-bgColor;
+    color: variables.$header-textColor;
+  }
+  .header--search svg path {
+    fill: variables.$header-textColor;
   }
 }
